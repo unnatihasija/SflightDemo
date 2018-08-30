@@ -1,0 +1,15 @@
+{
+    "role": {
+        "name": "masked",
+        "object_privileges": [
+            {
+                "name": "sflight",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT",
+                    "UNMASKED"
+                ]
+            }
+        ]
+    }
+}
