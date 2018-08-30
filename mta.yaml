@@ -1,0 +1,48 @@
+ID: SflightDemo-1
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: hdb
+   type: hdb
+   path: hdb
+   requires:
+    - name: hdi-container
+      properties:
+        TARGET_CONTAINER: '~{sflight_container}'
+    - name: SFLIGHT
+
+
+ - name: hdb_consumption
+   type: hdb
+   path: hdb_consumption
+   requires:
+    - name: hdi-container-consumption
+      properties:
+        TARGET_CONTAINER: '~{sflight_container_consumption}'
+    - name: hdi-container
+      group: SERVICE_REPLACEMENTS
+      properties:
+        key: hdi_sflight-service
+        service: '~{sflight_container}'
+
+resources:
+ - name: hdi-container
+   parameters:
+      config:
+         schema: sflight_schema
+   properties:
+      sflight_container: ${service-name}
+   type: com.sap.xs.hdi-container
+   
+ - name: SFLIGHT
+   type: org.cloudfoundry.existing-service
+
+ - name: hdi-container-consumption
+   parameters:
+      config:
+         schema: sflight_demo_consumption
+   properties:
+     sflight_container_consumption: ${service-name}
+   type: com.sap.xs.hdi-container
+

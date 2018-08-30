@@ -1,0 +1,9 @@
+{
+  "sflight": {
+    "target": {
+      "object": "sflight",
+      "schema": "SFLIGHT_SCHEMA_2",
+      "database": "HDB"
+    }
+  }
+}

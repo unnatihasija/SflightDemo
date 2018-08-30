@@ -1,0 +1,22 @@
+{
+    "hdi_sflight-service": {
+        "object_owner": {
+            "schema_roles": [
+                {
+                    "roles": [
+                        "PublicAccessSchema#"
+                    ]
+                }
+            ]
+        },
+        "application_user": {
+            "schema_roles": [
+                {
+                    "roles": [
+                        "PublicAccessSchema"
+                    ]
+                }
+            ]
+        }
+    }
+}
